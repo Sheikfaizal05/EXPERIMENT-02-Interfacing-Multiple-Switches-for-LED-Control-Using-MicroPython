@@ -2,13 +2,13 @@
 
 
  
-## NAME:
+## NAME: SHEIK FAIZAL
 
-## DEPARTMENT:
+## DEPARTMENT: AIML
 
-## ROLL NO:
+## ROLL NO: 212224240151
 
-## DATE OF EXPERIMENT:
+## DATE OF EXPERIMENT: 24/09/2025
 
 ## AIM
 
@@ -64,25 +64,55 @@ Connect LED 2 to GP17 via a 330Ω resistor.
 Connect the other terminals of the switches to GND.
 
 ## PROGRAM (MicroPython)
-''''
+```
+from machine import Pin
+from time import sleep
 
+switch1 = Pin(1, Pin.IN, Pin.PULL_UP)
+switch2 = Pin(27, Pin.IN, Pin.PULL_UP)
 
+led1 = Pin(13, Pin.OUT)
+led2 = Pin(17, Pin.OUT)
+
+while True:
+    sw1_state = switch1.value() 
+    sw2_state = switch2.value()
+    
+    print("Switch 1 state:", sw1_state)
+    print("Switch 2 state:", sw2_state)
+    
+    led1.value(0)
+    led2.value(0)
+    
+    if sw1_state == 1 and sw2_state == 1:
+        led1.value(0)
+        led2.value(0)
+    elif sw1_state == 1:
+        led1.value(0)
+        sleep(0.5)
+        led1.value(1)
+    elif sw2_state == 1:
+        led2.value(0)
+        sleep(0.5)
+        led2.value(1)
+    
+    sleep(0.1)
+
+```
 
  
 
-## OUTPUT
+## OUTPUT 00
+<img width="777" height="604" alt="image" src="https://github.com/user-attachments/assets/cab67cb4-6945-4d7e-a5bc-43117e38231d" />
 
+## OUTPUT 01
+<img width="825" height="607" alt="image" src="https://github.com/user-attachments/assets/91a98296-22c0-4bbd-ad80-83b844476298" />
 
+## OUTPUT 10
+<img width="791" height="572" alt="image" src="https://github.com/user-attachments/assets/4f7d5435-8657-461b-810d-013ff83bb01d" />
 
-FIGURE-02: CIRCUIT CONNECTION
-
-FIGURE-03: CODE EXECUTION OUTPUT
-
-FIGURE-04: LED STATUS BASED ON SWITCH INPUTS
-## TIMING DIGAGRAM 
-
-
-UPLOAD YOUR TIMING DIGARAM HERE 
+## OUTPUT 11
+<img width="762" height="521" alt="image" src="https://github.com/user-attachments/assets/bd6bc278-b125-4b45-8797-efe464464583" />
 
 
 
